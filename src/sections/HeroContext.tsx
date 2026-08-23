@@ -1,14 +1,20 @@
 import { Reveal } from "../lib/motion";
-import { Diamond, Divider, Scales, Seal, XMark } from "../components/decor";
+import { Check, Diamond, Scales, Seal } from "../components/decor";
 import { CTA, Eyebrow, SectionHeader, Wordmark } from "../components/ui";
 import { ProductMockup } from "../components/mockups";
+import { OFFER } from "../config/offer";
 
 /* ============ SEÇÃO 1 — HERO ============ */
+
+const HERO_BULLETS = [
+  "7 princípios para orientar sua maneira de pensar sobre dinheiro e recursos.",
+  "Mapa S.A.L.O.M. para revisar decisões antes de agir.",
+  "6 ferramentas práticas para levar a reflexão à aplicação.",
+];
 
 export function Hero() {
   return (
     <header id="topo" className="hero-grid relative overflow-hidden border-b border-ink/10">
-      {/* vinheta de profundidade */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_90%_at_50%_0%,transparent_55%,rgba(33,30,22,0.07))]"
@@ -29,59 +35,66 @@ export function Hero() {
           {/* Coluna de texto */}
           <div className="lg:col-span-7">
             <Reveal>
-              <Eyebrow>Sabedoria bíblica aplicada ao dinheiro</Eyebrow>
+              <Eyebrow>Os 7 Princípios da Prosperidade de Salomão</Eyebrow>
             </Reveal>
 
             <Reveal delay={80}>
-              <h1 className="mt-5 font-display text-[clamp(2.05rem,6.4vw,4.6rem)] font-semibold leading-[1.04] tracking-[-0.015em] text-ink">
+              <h1 className="mt-5 font-display text-[clamp(2.1rem,5.6vw,3.8rem)] font-semibold leading-[1.05] tracking-[-0.015em] text-ink">
                 <span className="mask-line" style={{ ["--rd" as string]: "120ms" }}>
-                  <span>Os 7 Princípios</span>
-                </span>
-                <span className="mask-line" style={{ ["--rd" as string]: "220ms" }}>
                   <span>
-                    da <em className="font-medium italic text-gold-deep">Prosperidade</em>
+                    Aprenda a <em className="font-medium italic text-gold-deep">governar</em>
                   </span>
                 </span>
+                <span className="mask-line" style={{ ["--rd" as string]: "220ms" }}>
+                  <span>melhor seus recursos</span>
+                </span>
                 <span className="mask-line" style={{ ["--rd" as string]: "320ms" }}>
-                  <span>de Salomão</span>
+                  <span>com 7 princípios</span>
+                </span>
+                <span className="mask-line" style={{ ["--rd" as string]: "420ms" }}>
+                  <span>de sabedoria bíblica</span>
                 </span>
               </h1>
             </Reveal>
 
             <Reveal delay={200}>
               <p className="mt-6 max-w-xl text-[15px] leading-relaxed text-ink-soft sm:text-base">
-                Aprenda a aplicar princípios de sabedoria encontrados em{" "}
-                <strong className="font-semibold text-ink">Provérbios</strong> e{" "}
-                <strong className="font-semibold text-ink">Eclesiastes</strong> para produzir
-                melhor, administrar seus recursos, construir patrimônio com prudência e
-                prosperar <em className="font-display italic">sem deixar o dinheiro governar sua vida</em>.
+                Um sistema prático inspirado em <strong className="font-semibold text-ink">Provérbios</strong> e{" "}
+                <strong className="font-semibold text-ink">Eclesiastes</strong> para analisar decisões,
+                organizar recursos e desenvolver uma relação mais sábia com dinheiro —{" "}
+                <em className="font-display italic">sem promessas de enriquecimento fácil</em>.
               </p>
             </Reveal>
 
             <Reveal delay={260}>
               <ul className="mt-6 space-y-2.5">
-                {[
-                  "Sem fórmulas para ficar rico.",
-                  "Sem promessas de dinheiro fácil.",
-                  "Sem precisar interpretar sozinho dezenas de passagens sobre trabalho, riqueza e administração.",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-[14px] text-ink-soft">
-                    <span className="mt-[7px] flex h-4 w-4 shrink-0 items-center justify-center border border-bronze/50 text-bronze">
-                      <XMark className="h-2.5 w-2.5" strokeWidth={3} />
+                {HERO_BULLETS.map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-[14px] font-medium text-ink">
+                    <span className="mt-[3px] flex h-5 w-5 shrink-0 items-center justify-center border border-gold-deep/50 bg-gold/10 text-gold-deep">
+                      <Check className="h-3 w-3" strokeWidth={3} />
                     </span>
                     {item}
                   </li>
                 ))}
               </ul>
+              <p className="mt-4 text-[12.5px] italic leading-relaxed text-ink-faint">
+                — Sem fórmulas para ficar rico. Sem promessas de dinheiro fácil.
+              </p>
             </Reveal>
 
             <Reveal delay={320}>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-5">
-                <CTA>Quero conhecer os 7 princípios</CTA>
+              <div className="mt-8">
+                <CTA dataCta="hero">Quero conhecer o método completo</CTA>
               </div>
-              <p className="mt-4 flex items-center gap-2.5 text-[11.5px] font-medium uppercase tracking-[0.14em] text-ink-faint">
-                <Diamond className="h-[6px] w-[6px] text-gold-deep" />
-                Acesso digital imediato · Guia + 6 ferramentas práticas
+              <p className="mt-4 flex flex-wrap items-center gap-x-2.5 gap-y-1 text-[11.5px] font-medium uppercase tracking-[0.12em] text-ink-faint">
+                <span className="flex items-center gap-2.5">
+                  <Diamond className="h-[6px] w-[6px] text-gold-deep" />
+                  Guia + 6 ferramentas práticas
+                </span>
+                <span aria-hidden="true">•</span>
+                <span>Acesso digital</span>
+                <span aria-hidden="true">•</span>
+                <span className="font-bold text-gold-deep">{OFFER.priceDisplay}</span>
               </p>
             </Reveal>
           </div>
@@ -90,7 +103,7 @@ export function Hero() {
           <div className="relative lg:col-span-5">
             <Seal className="absolute -top-4 right-0 hidden h-28 w-28 text-gold-deep/70 lg:block" />
             <Reveal delay={380}>
-              <ProductMockup className="mx-auto mt-2 max-w-[300px] sm:max-w-[340px] lg:mt-0 lg:max-w-none" />
+              <ProductMockup className="mx-auto mt-2 max-w-[290px] sm:max-w-[340px] lg:mt-0 lg:max-w-none" />
             </Reveal>
           </div>
         </div>
@@ -106,145 +119,71 @@ export function Hero() {
   );
 }
 
-/* ============ SEÇÃO 2 — CONTEXTO / PROBLEMA ============ */
+/* ============ SEÇÃO 2 — PROBLEMA ============ */
 
 export function Problem() {
   return (
-    <section className="relative bg-ivory-bright py-20 sm:py-28" id="contexto">
-      <div className="mx-auto grid max-w-6xl gap-10 px-5 sm:px-8 lg:grid-cols-12 lg:gap-14">
-        <div className="lg:col-span-5">
-          <div className="lg:sticky lg:top-24">
-            <SectionHeader
-              chapter="II"
-              eyebrow="O problema real"
-              lines={[
-                <>Talvez o seu problema financeiro</>,
-                <>
-                  não seja apenas <em className="italic text-gold-deep">ganhar pouco</em>
-                </>,
-              ]}
-            />
-            <Reveal delay={150}>
-              <Divider className="mt-10 text-gold-deep" />
-            </Reveal>
-          </div>
-        </div>
-
-        <div className="space-y-5 text-[15.5px] leading-relaxed text-ink-soft lg:col-span-7 lg:pt-2">
-          <Reveal>
-            <p className="dropcap">
-              Você pode trabalhar, ganhar dinheiro e ainda assim sentir que sua vida
-              financeira não avança. Isso acontece porque <strong className="font-semibold text-ink">ganhar é apenas uma parte do problema</strong>.
-            </p>
-          </Reveal>
-          <Reveal delay={60}>
-            <p>
-              Sem sabedoria para decidir, disciplina para produzir, organização para
-              administrar e prudência para preservar, mais dinheiro pode simplesmente
-              alimentar os mesmos hábitos.
-            </p>
-          </Reveal>
-          <Reveal delay={90}>
-            <p>
-              Ao mesmo tempo, buscar prosperidade sem propósito pode criar outro problema:
-              você começa querendo liberdade e termina{" "}
-              <strong className="font-semibold text-ink">sendo governado pelo próprio dinheiro</strong>.
-            </p>
-          </Reveal>
-          <Reveal delay={120}>
-            <p>
-              É justamente aí que Provérbios e Eclesiastes oferecem uma perspectiva
-              diferente. Em vez de ensinar uma fórmula para enriquecer, esses textos
-              apresentam princípios relacionados à sabedoria, trabalho, crescimento
-              gradual, administração, integridade, generosidade e propósito.
-            </p>
-          </Reveal>
-          <Reveal delay={150}>
-            <blockquote className="border-l-2 border-gold bg-ivory px-6 py-5 font-display text-lg italic leading-snug text-navy">
-              Os 7 Princípios da Prosperidade de Salomão transformam esses ensinamentos em
-              um processo prático — para olhar o dinheiro não apenas como algo para ganhar,
-              mas como um recurso a ser produzido, governado e utilizado com sabedoria.
-            </blockquote>
-          </Reveal>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ============ SEÇÃO 3 — NOVA CRENÇA ============ */
-
-export function NewBelief() {
-  return (
-    <section className="hairline-b relative overflow-hidden bg-ivory py-20 sm:py-28">
-      <Seal
-        className="pointer-events-none absolute -left-16 top-10 h-56 w-56 text-gold-deep/12"
-        spin={false}
-      />
-      <div className="relative mx-auto grid max-w-6xl gap-12 px-5 sm:px-8 lg:grid-cols-12 lg:gap-14">
+    <section id="problema" className="relative scroll-mt-8 bg-ivory-bright py-20 sm:py-28">
+      <div className="mx-auto grid max-w-6xl gap-12 px-5 sm:px-8 lg:grid-cols-12 lg:gap-14">
         <div className="lg:col-span-7">
           <SectionHeader
-            chapter="III"
-            eyebrow="Uma nova ordem"
+            chapter="I"
+            eyebrow="O problema real"
             lines={[
-              <>O problema não é querer prosperar</>,
+              <>Ganhar mais não resolve tudo</>,
               <>
-                É tentar prosperar{" "}
-                <em className="italic text-gold-deep">sem aprender a governar</em>
+                quando falta <em className="italic text-gold-deep">governo</em>
               </>,
             ]}
           />
 
-          <div className="mt-9 space-y-5 text-[15.5px] leading-relaxed text-ink-soft">
+          <div className="mt-8 max-w-xl space-y-5 text-[15.5px] leading-relaxed text-ink-soft">
             <Reveal>
-              <p>Muita gente reduz prosperidade a uma única pergunta:</p>
-              <p className="mt-3 font-display text-xl font-medium italic text-navy">
-                “Como eu ganho mais dinheiro?”
-              </p>
-              <p className="mt-4">Mas existe uma pergunta anterior:</p>
-              <p className="mt-3 border-l-2 border-gold pl-4 font-display text-xl font-medium italic text-navy">
-                “Se mais dinheiro chegar às minhas mãos, eu tenho sabedoria para
-                governá-lo?”
+              <p className="dropcap">
+                Você pode trabalhar, aumentar sua renda e ainda continuar financeiramente
+                desorganizado. Isso acontece porque{" "}
+                <strong className="font-semibold text-ink">
+                  ganhar dinheiro é apenas uma parte da equação
+                </strong>
+                .
               </p>
             </Reveal>
-            <Reveal delay={80}>
-              <ul className="space-y-2 pt-1">
-                {[
-                  "Alguém pode ganhar mais — e gastar mais.",
-                  "Pode crescer profissionalmente — e continuar desorganizado.",
-                  "Pode aumentar a renda — e aumentar as dívidas.",
-                  "Pode acumular — e nunca considerar suficiente.",
-                  "Pode possuir recursos — e comprometer a integridade para conseguir ainda mais.",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <span className="mt-[9px] h-1.5 w-1.5 shrink-0 rotate-45 bg-gold-deep" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <p className="pt-3">A proposta deste material é mudar a ordem.</p>
+            <Reveal delay={70}>
+              <p>
+                Sem critérios para decidir, disciplina para produzir, organização para
+                administrar e prudência para preservar, mais recursos podem apenas alimentar
+                os mesmos padrões.
+              </p>
+            </Reveal>
+            <Reveal delay={130}>
+              <p>
+                Por isso, antes de pensar somente em ganhar mais, existe uma pergunta
+                anterior:
+              </p>
+              <blockquote className="mt-4 border-l-2 border-gold bg-ivory px-6 py-5 font-display text-lg font-medium italic leading-snug text-navy">
+                “Como estou governando aquilo que já passa pelas minhas mãos?”
+              </blockquote>
             </Reveal>
           </div>
         </div>
 
-        {/* Destaque grande */}
-        <div className="lg:col-span-5 lg:pt-8">
-          <Reveal delay={150}>
-            <div className="relative border border-gold-deep/50 bg-navy px-7 py-12 text-center shadow-[0_30px_60px_-30px_rgba(13,22,38,0.55)] sm:px-10 sm:py-16">
+        {/* Placa da virada — sabedoria antes de recursos */}
+        <div className="lg:col-span-5 lg:pt-6">
+          <Reveal delay={180}>
+            <div className="relative border border-gold-deep/50 bg-navy px-7 py-10 text-center shadow-[0_30px_60px_-30px_rgba(13,22,38,0.55)] sm:px-9">
               <div aria-hidden="true" className="pointer-events-none absolute inset-2 border border-gold/30" />
-              <Scales className="mx-auto h-10 w-10 text-gold-soft" strokeWidth={3.8} />
-              <p className="mt-7 font-display text-[clamp(1.8rem,5vw,2.6rem)] font-semibold uppercase leading-[1.08] text-ivory-bright">
-                Sabedoria
-                <br />
-                primeiro.
+              <Scales className="mx-auto h-9 w-9 text-gold-soft" strokeWidth={3.8} />
+              <p className="mt-6 font-display text-[clamp(1.5rem,4vw,2rem)] font-semibold uppercase leading-[1.1] text-ivory-bright">
+                Sabedoria primeiro.
               </p>
-              <div className="mx-auto my-5 h-px w-14 bg-gold" />
-              <p className="font-display text-[clamp(1.8rem,5vw,2.6rem)] font-semibold uppercase leading-[1.08] text-gold-soft">
-                Recursos
-                <br />
-                depois.
+              <div className="mx-auto my-4 h-px w-12 bg-gold" />
+              <p className="font-display text-[clamp(1.5rem,4vw,2rem)] font-semibold uppercase leading-[1.1] text-gold-soft">
+                Recursos depois.
               </p>
             </div>
+            <p className="mt-5 text-center text-[12.5px] italic leading-relaxed text-ink-faint">
+              A ordem muda tudo: primeiro a capacidade de governar, depois os recursos.
+            </p>
           </Reveal>
         </div>
       </div>
@@ -252,7 +191,7 @@ export function NewBelief() {
   );
 }
 
-/* ============ SEÇÃO 4 — BIG IDEA (alto contraste) ============ */
+/* ============ SEÇÃO 3 — BIG IDEA / VIRADA DE CRENÇA ============ */
 
 export function BigIdea() {
   return (
@@ -262,66 +201,47 @@ export function BigIdea() {
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(90%_70%_at_50%_0%,rgba(203,167,91,0.09),transparent_60%)]"
       />
       <Scales
-        className="pointer-events-none absolute -right-20 top-1/2 h-[420px] w-[420px] -translate-y-1/2 text-gold-soft/[0.06]"
+        className="pointer-events-none absolute -right-20 top-1/2 hidden h-[420px] w-[420px] -translate-y-1/2 text-gold-soft/[0.06] sm:block"
         strokeWidth={2}
       />
 
       <div className="relative mx-auto max-w-4xl px-5 sm:px-8">
         <SectionHeader
-          chapter="IV"
-          eyebrow="A grande ideia"
+          chapter="II"
+          eyebrow="A virada de crença"
           tone="light"
           align="center"
           lines={[
             <>Antes de aprender a ganhar mais,</>,
             <>
-              aprenda a <em className="italic text-gold-soft">governar</em>
+              aprenda a <em className="italic text-gold-soft">governar</em>.
             </>,
           ]}
         />
 
         <Reveal delay={120}>
-          <div className="mx-auto mt-10 max-w-2xl space-y-5 text-center text-[15.5px] leading-relaxed text-ivory-dim">
-            <p>
-              O diferencial associado à sabedoria de Salomão não está simplesmente em
-              possuir riquezas. Está na <strong className="font-semibold text-ivory-bright">sabedoria necessária para governar</strong>{" "}
-              decisões, recursos e responsabilidades.
-            </p>
-            <p>Por isso, a principal pergunta desta oferta não é:</p>
-            <p className="font-display text-xl italic text-ivory-bright/80">“Como ficar rico?”</p>
-            <p>É:</p>
-          </div>
+          <p className="mx-auto mt-8 max-w-2xl text-center text-[15.5px] leading-relaxed text-ivory-dim">
+            O diferencial da sabedoria associada a Salomão não está apenas em possuir
+            recursos. Está em desenvolver{" "}
+            <strong className="font-semibold text-ivory-bright">
+              sabedoria para decidir, administrar e lidar
+            </strong>{" "}
+            com aquilo que passa pelas suas mãos.
+          </p>
         </Reveal>
 
         <Reveal delay={200}>
-          <figure className="relative mx-auto mt-8 max-w-3xl border border-gold/40 px-6 py-10 text-center sm:px-12">
+          <figure className="relative mx-auto mt-10 max-w-3xl border border-gold/40 px-6 py-10 text-center sm:px-12">
             <span
               aria-hidden="true"
               className="anim-seal absolute -top-6 left-1/2 -translate-x-1/2 bg-navy-deep px-4 font-display text-5xl leading-none text-gold-soft"
             >
               “
             </span>
-            <blockquote className="font-display text-[clamp(1.4rem,4vw,2.2rem)] font-medium italic leading-[1.25] text-ivory-bright">
+            <blockquote className="font-display text-[clamp(1.35rem,3.8vw,2.1rem)] font-medium italic leading-[1.25] text-ivory-bright">
               Como desenvolver sabedoria para governar aquilo que passa pelas minhas mãos?
             </blockquote>
           </figure>
-        </Reveal>
-
-        <Reveal delay={260}>
-          <div className="mx-auto mt-12 grid max-w-2xl gap-4 sm:grid-cols-2">
-            {[
-              "Recursos sem governo podem produzir desordem.",
-              "Prosperidade sem propósito pode se transformar em vaidade.",
-            ].map((line) => (
-              <p
-                key={line}
-                className="flex items-start gap-3 border border-gold/25 bg-navy px-5 py-4 font-display text-[15.5px] font-medium leading-snug text-gold-soft"
-              >
-                <Diamond className="mt-[7px] shrink-0 text-gold-soft" />
-                {line}
-              </p>
-            ))}
-          </div>
         </Reveal>
       </div>
     </section>

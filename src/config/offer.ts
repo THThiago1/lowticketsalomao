@@ -1,0 +1,34 @@
+/**
+ * ─────────────────────────────────────────────────────────────
+ * CONFIGURAÇÃO CENTRAL DA OFERTA
+ * ─────────────────────────────────────────────────────────────
+ * Altere os dados comerciais em UM ÚNICO LUGAR.
+ * Preço, nome, checkout e garantia são lidos deste arquivo
+ * por todos os CTAs e seções da página.
+ */
+export const OFFER = {
+  /** Nome comercial do produto */
+  productName: "Os 7 Princípios da Prosperidade de Salomão",
+
+  /** Valor em reais (numérico, para lógica futura) */
+  price: 67,
+
+  /** Valor formatado para exibição */
+  priceDisplay: "R$ 67,00",
+
+  /**
+   * URL real do checkout (plataforma de pagamento).
+   * ⚠️ ANTES DE PUBLICAR: substitua o placeholder abaixo pela URL real.
+   * Todos os botões de compra (oferta, encerramento e sticky)
+   * apontam para este endereço.
+   */
+  checkoutUrl: "COLE_AQUI_A_URL_REAL_DO_CHECKOUT",
+
+  /**
+   * Política oficial de garantia.
+   * Enquanto estiver vazia (""), a área de garantia e a pergunta
+   * "Tem garantia?" do FAQ NÃO são exibidas ao público.
+   * Ex.: "Você tem 7 dias de garantia incondicional..."
+   */
+  guaranteeText: "",
+} as const;

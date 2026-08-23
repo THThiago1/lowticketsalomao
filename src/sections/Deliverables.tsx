@@ -2,58 +2,61 @@ import { Reveal } from "../lib/motion";
 import { MiniMock, type MockKind } from "../components/mockups";
 import { SectionHeader } from "../components/ui";
 
+/* ============ SEÇÃO 8 — TUDO O QUE O CLIENTE RECEBE ============ */
+
 const ITEMS: { kind: MockKind; name: string; desc: string }[] = [
   {
     kind: "book",
-    name: "Guia principal — Os 7 Princípios da Prosperidade de Salomão",
-    desc: "Mini-ebook visual apresentando os sete princípios, sua fundamentação e a aplicação de cada um à vida financeira moderna.",
+    name: "Guia Principal — Os 7 Princípios da Prosperidade de Salomão",
+    desc: "Conheça os sete princípios, sua fundamentação e como eles podem ser levados para situações relacionadas a dinheiro, trabalho, administração e propósito.",
   },
   {
     kind: "diagnostic",
     name: "Diagnóstico da Prosperidade Sábia",
-    desc: "Avaliação prática para identificar quais princípios já aparecem na sua vida — e quais merecem atenção.",
+    desc: "Identifique quais princípios já aparecem na sua forma de lidar com recursos e quais pontos merecem mais atenção.",
   },
   {
     kind: "map",
     name: "Mapa S.A.L.O.M.",
-    desc: "Framework de cinco perguntas para revisar decisões relacionadas a dinheiro, trabalho, negócios e compromissos financeiros.",
+    desc: "Use cinco perguntas para revisar decisões antes de agir e criar uma pausa entre impulso e escolha.",
   },
   {
     kind: "plan",
     name: "Plano Pouco a Pouco",
-    desc: "Ferramenta para transformar objetivos financeiros amplos em pequenas ações recorrentes de construção.",
+    desc: "Transforme objetivos financeiros amplos em pequenas ações executáveis, evitando depender de uma única grande mudança.",
   },
   {
     kind: "xray",
     name: "Raio-X dos Seus Recursos",
-    desc: "Mapa para visualizar entradas, saídas, compromissos, dívidas, reservas e recursos.",
+    desc: "Visualize entradas, saídas, dívidas, compromissos e reservas para enxergar com mais clareza como seus recursos estão organizados.",
   },
   {
     kind: "decision",
     name: "Checklist da Decisão Financeira Sábia",
-    desc: "Perguntas para consultar antes de compras relevantes, dívidas, novas obrigações, oportunidades ou decisões financeiras importantes.",
+    desc: "Tenha uma sequência de critérios para consultar antes de compras, dívidas, novos compromissos e outras decisões relevantes.",
   },
   {
     kind: "doc",
     name: "Plano Pessoal de Prosperidade Sábia",
-    desc: "Página de implementação para transformar os aprendizados em princípios e comportamentos práticos.",
+    desc: "Reúna suas principais descobertas e defina quais comportamentos e princípios pretende colocar em prática.",
   },
 ];
 
 export function Deliverables() {
   return (
-    <section className="hairline-b relative bg-ivory py-20 sm:py-28" id="incluido">
+    <section id="incluido" className="hairline-b relative scroll-mt-8 bg-ivory py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <SectionHeader
-            chapter="VIII"
-            eyebrow="O que está incluído"
+            chapter="VII"
+            eyebrow="Tudo o que você recebe"
             lines={[
+              <>Um kit de aplicação,</>,
               <>
-                Tudo que você <em className="italic text-gold-deep">recebe</em>
+                não apenas <em className="italic text-gold-deep">conteúdo para ler</em>
               </>,
             ]}
-            sub="Um guia principal e seis ferramentas de aplicação — para ler, diagnosticar, decidir e implementar."
+            sub="O guia principal apresenta os princípios; as seis ferramentas levam a reflexão para a prática — cada uma com uma função clara no percurso."
           />
           <Reveal delay={200}>
             <p className="shrink-0 border border-gold-deep/40 bg-ivory-bright px-5 py-4 font-display text-lg font-medium text-navy">
@@ -85,7 +88,10 @@ export function Deliverables() {
                   <h3 className="mt-2 font-display text-[17px] font-semibold leading-snug text-ink">
                     {item.name}
                   </h3>
-                  <p className="mt-3 text-[13.5px] leading-relaxed text-ink-soft">
+                  <p className="mt-3 text-[9.5px] font-bold uppercase tracking-[0.22em] text-bronze">
+                    Para que serve
+                  </p>
+                  <p className="mt-1.5 text-[13.5px] leading-relaxed text-ink-soft">
                     {item.desc}
                   </p>
                   {i === 0 && (

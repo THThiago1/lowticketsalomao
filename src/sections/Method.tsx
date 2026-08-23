@@ -43,7 +43,7 @@ export function SalomMap() {
   const item = SALOM[active];
 
   return (
-    <section className="navy-grid relative overflow-hidden bg-navy py-20 text-ivory-bright sm:py-28" id="mapa-salom">
+    <section id="mapa-salom" className="navy-grid relative scroll-mt-8 overflow-hidden bg-navy py-20 text-ivory-bright sm:py-28">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_60%_at_85%_10%,rgba(203,167,91,0.1),transparent_55%)]"
@@ -52,21 +52,26 @@ export function SalomMap() {
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-14">
           <div className="lg:col-span-5">
             <SectionHeader
-              chapter="VI"
-              eyebrow="Ferramenta de implementação"
+              chapter="V"
+              eyebrow="O mecanismo prático"
               tone="light"
               lines={[
-                <>Transforme princípios em decisões</>,
+                <>Os princípios mostram</>,
                 <>
-                  com o <em className="italic text-gold-soft">Mapa S.A.L.O.M.</em>
+                  o que <em className="italic text-gold-soft">observar</em>.
                 </>,
+                <>O Mapa S.A.L.O.M. revisa</>,
+                <>a decisão antes de agir.</>,
               ]}
-              sub="Os sete princípios mostram o que pensar. O Mapa S.A.L.O.M. ajuda a lembrar como revisar uma decisão — antes de tomá-la."
+              sub="Os 7 princípios mostram o que observar. O Mapa S.A.L.O.M. ajuda a revisar uma decisão antes de agir — cinco perguntas para criar uma pausa antes de escolhas importantes."
             />
             <Reveal delay={200}>
               <p className="mt-8 flex items-center gap-3 text-[12px] font-semibold uppercase tracking-[0.2em] text-gold-soft/80">
-                <Scales className="h-5 w-5" strokeWidth={4} />
-                Cinco perguntas · Uma pausa sábia
+                <Scales className="h-5 w-5" strokeWidth={4} />5 perguntas · Uma pausa antes de decidir
+              </p>
+              <p className="mt-5 max-w-sm text-[12.5px] italic leading-relaxed text-ivory-dim/60">
+                O mapa não decide por você — ele organiza a reflexão e oferece critérios
+                para revisar cada escolha com mais clareza.
               </p>
             </Reveal>
           </div>
@@ -82,6 +87,7 @@ export function SalomMap() {
                 {SALOM.map((s, i) => (
                   <button
                     key={s.letter}
+                    type="button"
                     role="tab"
                     aria-selected={active === i}
                     onClick={() => setActive(i)}
@@ -117,9 +123,9 @@ export function SalomMap() {
                   <p className="mt-5 font-display text-[clamp(1.3rem,3.4vw,2rem)] font-medium italic leading-[1.3] text-ivory-bright">
                     “{item.question}”
                   </p>
-                  <div className="mt-6 flex items-center gap-3">
-                    <span className="h-px w-8 bg-gold" />
-                    <p className="text-[13.5px] font-semibold uppercase tracking-[0.12em] text-ivory-dim">
+                  <div className="mt-6 flex flex-wrap items-center gap-3">
+                    <span className="h-px w-8 shrink-0 bg-gold" />
+                    <p className="text-[13px] font-semibold uppercase tracking-[0.12em] text-ivory-dim sm:text-[13.5px]">
                       {item.line}
                     </p>
                   </div>
@@ -150,27 +156,27 @@ export function SalomMap() {
 const FLOW = [
   {
     stage: "Entrada",
-    title: "Onde você está",
-    text: "Você identifica como atualmente lida com trabalho, decisões e dinheiro.",
+    title: "Entenda onde você está",
+    text: "Use o diagnóstico e o Raio-X para observar como atualmente lida com recursos, decisões e compromissos.",
   },
   {
     stage: "Processo",
-    title: "O caminho dos princípios",
-    text: "Você percorre os 7 Princípios da Prosperidade Sábia e utiliza exercícios, checklists e o Mapa S.A.L.O.M. para transformar conceitos em decisões práticas.",
+    title: "Aplique os princípios",
+    text: "Percorra os 7 princípios e utilize o Mapa S.A.L.O.M., exercícios e checklists para transformar conceitos em critérios de decisão.",
   },
   {
     stage: "Resultado",
-    title: "O seu plano pessoal",
-    text: "Você constrói um Plano Pessoal de Prosperidade Sábia mostrando princípios já praticados, pontos que precisam de atenção e comportamentos que pretende implementar.",
+    title: "Construa seu plano pessoal",
+    text: "Organize os pontos que merecem atenção e transforme a reflexão em pequenas ações que façam sentido para sua realidade.",
   },
 ];
 
 export function HowItWorks() {
   return (
-    <section className="hairline-b relative bg-ivory-bright py-20 sm:py-28" id="como-funciona">
+    <section id="como-funciona" className="hairline-b relative scroll-mt-8 bg-ivory-bright py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <SectionHeader
-          chapter="VII"
+          chapter="VI"
           eyebrow="Como funciona"
           align="center"
           lines={[
@@ -197,7 +203,7 @@ export function HowItWorks() {
                   )}
                 </div>
 
-                <div className={`flex-1 ${i < FLOW.length - 1 ? "pb-10" : ""}`}>
+                <div className={`min-w-0 flex-1 ${i < FLOW.length - 1 ? "pb-10" : ""}`}>
                   <p className="eyebrow text-bronze">{step.stage}</p>
                   <h3 className="mt-2 font-display text-2xl font-semibold text-ink">
                     {step.title}
@@ -220,8 +226,8 @@ export function HowItWorks() {
                     Não é uma previsão de quanto você ganhará.
                   </strong>
                   <br />
-                  É uma estrutura para melhorar a maneira como você governa aquilo que
-                  passa pelas suas mãos.
+                  É uma estrutura para melhorar a maneira como você pensa, decide e
+                  administra aquilo que passa pelas suas mãos.
                 </p>
               </div>
             </div>
