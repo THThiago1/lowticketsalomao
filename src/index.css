@@ -29,7 +29,18 @@ body {
   color: var(--color-ink);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  overflow-x: clip;
+}
+
+button {
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+a {
+  touch-action: manipulation;
 }
 
 /* Grão de papel sobre toda a página */
@@ -88,8 +99,13 @@ body::after {
 .eyebrow {
   font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.34em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
+}
+@media (min-width: 640px) {
+  .eyebrow {
+    letter-spacing: 0.34em;
+  }
 }
 
 .dropcap::first-letter {

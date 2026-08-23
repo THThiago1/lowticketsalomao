@@ -96,7 +96,7 @@ export function SectionHeader({
       } ${className}`}
     >
       <div
-        className={`flex items-center gap-4 ${
+        className={`flex flex-wrap items-center gap-x-4 gap-y-2 ${
           align === "center" ? "justify-center" : ""
         }`}
       >
@@ -240,11 +240,11 @@ export function Wordmark({ tone = "dark" }: { tone?: "dark" | "light" }) {
   return (
     <a href="#topo" className="flex items-center gap-2.5">
       <Scales
-        className={`h-6 w-6 ${dark ? "text-gold-deep" : "text-gold-soft"}`}
+        className={`h-5 w-5 shrink-0 sm:h-6 sm:w-6 ${dark ? "text-gold-deep" : "text-gold-soft"}`}
         strokeWidth={4}
       />
       <span
-        className={`font-display text-[15px] font-semibold tracking-[0.08em] ${
+        className={`font-display text-[13px] font-semibold tracking-[0.08em] sm:text-[15px] ${
           dark ? "text-ink" : "text-ivory-bright"
         }`}
       >

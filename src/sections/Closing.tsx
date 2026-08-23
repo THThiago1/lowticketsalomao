@@ -156,6 +156,17 @@ const QUESTIONS = [
   "Como vou desfrutar?",
 ];
 
+/* Escalonamento só a partir de sm — em telas estreitas a margem zerada evita corte */
+const STAIRS = [
+  "",
+  "sm:ml-[14px]",
+  "sm:ml-[28px]",
+  "sm:ml-[42px]",
+  "sm:ml-[56px]",
+  "sm:ml-[70px]",
+  "sm:ml-[84px]",
+];
+
 export function Closing() {
   return (
     <section className="hairline-b relative overflow-hidden bg-ivory py-20 sm:py-28">
@@ -189,8 +200,7 @@ export function Closing() {
             {QUESTIONS.map((q, i) => (
               <Reveal key={q} delay={i * 70}>
                 <p
-                  className="border-l-2 border-gold/70 py-2.5 pl-5 font-display text-[clamp(1.15rem,2.6vw,1.5rem)] font-medium leading-snug text-navy transition-transform duration-300 hover:translate-x-1.5 sm:pl-6"
-                  style={{ marginLeft: `${Math.min(i * 14, 84)}px` }}
+                  className={`${STAIRS[i]} border-l-2 border-gold/70 py-2.5 pl-5 font-display text-[clamp(1.15rem,2.6vw,1.5rem)] font-medium leading-snug text-navy transition-transform duration-300 hover:translate-x-1.5 sm:pl-6`}
                 >
                   {q}
                 </p>
@@ -198,8 +208,7 @@ export function Closing() {
             ))}
             <Reveal delay={QUESTIONS.length * 70 + 60}>
               <p
-                className="mt-5 border-l-2 border-navy py-2.5 pl-5 font-display text-[clamp(1.25rem,3vw,1.7rem)] font-semibold italic leading-snug text-ink sm:pl-6"
-                style={{ marginLeft: `${Math.min(QUESTIONS.length * 14, 84)}px` }}
+                className="mt-5 border-l-2 border-navy py-2.5 pl-5 font-display text-[clamp(1.25rem,3vw,1.7rem)] font-semibold italic leading-snug text-ink sm:ml-[84px] sm:pl-6"
               >
                 E quem estará no controle: eu ou o dinheiro?
               </p>

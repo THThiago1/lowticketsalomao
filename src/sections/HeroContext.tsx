@@ -20,7 +20,7 @@ export function Hero() {
           <p className="hidden text-[10.5px] font-semibold uppercase tracking-[0.26em] text-ink-faint sm:block">
             Provérbios · Eclesiastes
           </p>
-          <span className="eyebrow border border-gold-deep/40 px-3 py-1.5 text-gold-deep">
+          <span className="eyebrow hidden items-center border border-gold-deep/40 px-3 py-1.5 text-gold-deep min-[400px]:inline-flex">
             Guia Digital
           </span>
         </div>
@@ -33,7 +33,7 @@ export function Hero() {
             </Reveal>
 
             <Reveal delay={80}>
-              <h1 className="mt-5 font-display text-[clamp(2.35rem,7.2vw,4.6rem)] font-semibold leading-[1.02] tracking-[-0.015em] text-ink">
+              <h1 className="mt-5 font-display text-[clamp(2.05rem,6.4vw,4.6rem)] font-semibold leading-[1.04] tracking-[-0.015em] text-ink">
                 <span className="mask-line" style={{ ["--rd" as string]: "120ms" }}>
                   <span>Os 7 Princípios</span>
                 </span>
