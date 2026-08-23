@@ -1,4 +1,5 @@
 import { Reveal } from "../lib/motion";
+import { Check } from "../components/decor";
 import { MiniMock, type MockKind } from "../components/mockups";
 import { SectionHeader } from "../components/ui";
 import { OFFER } from "../config/offer";
@@ -100,9 +101,20 @@ export function Deliverables() {
                       Material central
                     </p>
                   )}
-                  <p className="mt-4 text-[12px] font-semibold uppercase tracking-[0.12em] text-gold-deep">
-                    Valor individual: R$ {OFFER.itemValues[i]},00
-                  </p>
+                  <div className="mt-4 border-t border-ink/10 pt-3">
+                    <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-ink-faint">
+                      Se adquirido separadamente
+                    </p>
+                    <div className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1.5">
+                      <s className="font-display text-[15px] font-medium text-ink-faint/80 decoration-bronze/70 [text-decoration:line-through]">
+                        R$ {OFFER.itemValues[i]},00
+                      </s>
+                      <span className="inline-flex items-center gap-1.5 border border-gold/60 bg-gold/10 px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.18em] text-gold-deep">
+                        <Check className="h-3 w-3" strokeWidth={3.4} />
+                        Incluso na coleção
+                      </span>
+                    </div>
+                  </div>
                 </div>
               </article>
             </Reveal>
