@@ -1,6 +1,7 @@
 import { Reveal } from "../lib/motion";
 import { MiniMock, type MockKind } from "../components/mockups";
 import { SectionHeader } from "../components/ui";
+import { OFFER } from "../config/offer";
 
 /* ============ SEÇÃO 8 — TUDO O QUE O CLIENTE RECEBE ============ */
 
@@ -99,6 +100,9 @@ export function Deliverables() {
                       Material central
                     </p>
                   )}
+                  <p className="mt-4 text-[12px] font-semibold uppercase tracking-[0.12em] text-gold-deep">
+                    Valor individual: R$ {OFFER.itemValues[i]},00
+                  </p>
                 </div>
               </article>
             </Reveal>

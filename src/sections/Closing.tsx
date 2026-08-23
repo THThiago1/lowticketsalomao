@@ -56,25 +56,45 @@ export function Offer() {
             <p className="eyebrow text-center text-gold-soft">O que está incluído</p>
             <ul className="mx-auto mt-6 max-w-xl space-y-3">
               {STACK.map((item, i) => (
-                <li key={item} className="flex items-start gap-3.5">
-                  <span className="mt-[3px] font-display text-lg font-semibold leading-none text-gold-soft">
+                <li key={item} className="flex items-baseline gap-3.5">
+                  <span className="font-display text-lg font-semibold leading-none text-gold-soft">
                     {i === 0 ? "=" : "+"}
                   </span>
                   <span
-                    className={`text-[14.5px] leading-relaxed ${
+                    className={`flex-1 text-[14.5px] leading-relaxed ${
                       i === 0 ? "font-semibold text-ivory-bright" : "text-ivory-dim"
                     }`}
                   >
                     {item}
                   </span>
+                  <span className="shrink-0 font-display text-[13.5px] font-semibold leading-none text-gold-soft">
+                    R$ {OFFER.itemValues[i]}
+                  </span>
                 </li>
               ))}
             </ul>
+            <p className="mt-5 text-center text-[10.5px] font-semibold uppercase tracking-[0.16em] text-ivory-dim/50">
+              Valores individuais de referência
+            </p>
 
             <div className="mt-10 border-t border-gold/25 pt-8 text-center">
-              <p className="eyebrow text-ivory-dim/70">Investimento · Pagamento único</p>
-              <p className="mt-4 font-display text-[clamp(2.7rem,9vw,4.2rem)] font-semibold leading-none tracking-tight text-gold-soft">
+              <p className="eyebrow text-ivory-dim/70">Valor de referência da coleção</p>
+              <p className="mt-2 text-[10.5px] font-semibold uppercase tracking-[0.16em] text-ivory-dim/45">
+                Soma dos sete materiais individualmente
+              </p>
+              <p className="mt-4">
+                <s className="font-display text-[clamp(1.35rem,3.5vw,1.8rem)] font-medium text-ivory-dim/50 line-through decoration-bronze decoration-2">
+                  {OFFER.collectionReferenceDisplay}
+                </s>
+              </p>
+              <p className="mt-6 text-[11.5px] font-semibold uppercase tracking-[0.18em] text-ivory-dim/70">
+                Hoje, você recebe a coleção completa por:
+              </p>
+              <p className="mt-3 font-display text-[clamp(2.7rem,9vw,4.2rem)] font-semibold leading-none tracking-tight text-gold-soft">
                 {OFFER.priceDisplay}
+              </p>
+              <p className="mt-3 text-[11.5px] font-semibold uppercase tracking-[0.18em] text-ivory-dim/60">
+                Pagamento único
               </p>
               <p className="mt-4 text-[11.5px] font-semibold uppercase tracking-[0.18em] text-ivory-dim/60">
                 Acesso digital · Instruções enviadas por e-mail após a confirmação do

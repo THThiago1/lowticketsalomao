@@ -31,4 +31,16 @@ export const OFFER = {
    * Ex.: "Você tem 7 dias de garantia incondicional..."
    */
   guaranteeText: "",
+
+  /**
+   * Valores individuais de referência de cada material,
+   * na mesma ordem da lista da oferta (STACK):
+   * Guia 147 · Diagnóstico 67 · Mapa 97 · Plano Pouco a Pouco 67 ·
+   * Raio-X 87 · Checklist 57 · Plano Pessoal 68.
+   * Soma dos sete valores: R$ 590,00.
+   */
+  itemValues: [147, 67, 97, 67, 87, 57, 68],
+
+  /** Valor de referência da coleção (soma dos materiais individualmente) */
+  collectionReferenceDisplay: "R$ 590,00",
 } as const;
