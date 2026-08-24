@@ -33,12 +33,10 @@ export function CTA({
     lg: "px-8 py-[17px] text-[12.5px] tracking-[0.2em] min-h-[56px]",
     md: "px-6 py-[13px] text-[11.5px] tracking-[0.18em] min-h-[48px]",
   };
-  const isExternal = /^https?:\/\//.test(href);
   return (
     <a
       href={href}
       data-cta={dataCta}
-      {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       className={`group inline-flex ${
         full ? "w-full" : "w-full sm:w-auto"
       } items-center justify-center gap-3 text-center font-semibold uppercase transition-all duration-300 hover:-translate-y-[2px] active:translate-y-0 active:scale-[0.99] ${sizes[size]} ${variants[variant]}`}

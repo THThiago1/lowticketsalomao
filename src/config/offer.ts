@@ -17,12 +17,11 @@ export const OFFER = {
   priceDisplay: "R$ 67,00",
 
   /**
-   * URL real do checkout (plataforma de pagamento).
-   * ⚠️ ANTES DE PUBLICAR: substitua o placeholder abaixo pela URL real.
+   * URL oficial do checkout (Cakto).
    * Todos os botões de compra (oferta, encerramento e sticky)
-   * apontam para este endereço.
+   * apontam para este endereço, abrindo na mesma aba.
    */
-  checkoutUrl: "COLE_AQUI_A_URL_REAL_DO_CHECKOUT",
+  checkoutUrl: "https://pay.cakto.com.br/kx6zfx3_1059972",
 
   /**
    * Política oficial de garantia.
