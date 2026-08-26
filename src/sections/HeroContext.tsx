@@ -1,7 +1,7 @@
 import { Reveal } from "../lib/motion";
 import { Check, Diamond, Scales, Seal } from "../components/decor";
 import { CTA, Eyebrow, SectionHeader, Wordmark } from "../components/ui";
-import { ProductMockup } from "../components/mockups";
+import { COLLECTION_IMAGE, DIAGNOSTIC_IMAGE } from "../components/mockups";
 import { OFFER } from "../config/offer";
 
 /* ============ SEÇÃO 1 — HERO ============ */
@@ -99,11 +99,18 @@ export function Hero() {
             </Reveal>
           </div>
 
-          {/* Coluna do mockup */}
+          {/* Coluna da coleção */}
           <div className="relative lg:col-span-5">
-            <Seal className="absolute -top-4 right-0 hidden h-28 w-28 text-gold-deep/70 lg:block" />
+            <Seal className="absolute -top-4 right-0 z-10 hidden h-28 w-28 text-gold-deep/70 lg:block" />
             <Reveal delay={380}>
-              <ProductMockup className="mx-auto mt-2 max-w-[290px] sm:max-w-[340px] lg:mt-0 lg:max-w-none" />
+              <div className="anim-float">
+                <img
+                  src={COLLECTION_IMAGE}
+                  alt="Coleção completa Os 7 Princípios da Prosperidade de Salomão"
+                  decoding="async"
+                  className="mx-auto mt-2 h-auto w-full max-w-[290px] object-contain sm:max-w-[340px] lg:mt-0 lg:max-w-none"
+                />
+              </div>
             </Reveal>
           </div>
         </div>
@@ -167,23 +174,16 @@ export function Problem() {
           </div>
         </div>
 
-        {/* Placa da virada — sabedoria antes de recursos */}
+        {/* Diagnóstico — o primeiro passo para observar a própria situação */}
         <div className="lg:col-span-5 lg:pt-6">
           <Reveal delay={180}>
-            <div className="relative border border-gold-deep/50 bg-navy px-7 py-10 text-center shadow-[0_30px_60px_-30px_rgba(13,22,38,0.55)] sm:px-9">
-              <div aria-hidden="true" className="pointer-events-none absolute inset-2 border border-gold/30" />
-              <Scales className="mx-auto h-9 w-9 text-gold-soft" strokeWidth={3.8} />
-              <p className="mt-6 font-display text-[clamp(1.5rem,4vw,2rem)] font-semibold uppercase leading-[1.1] text-ivory-bright">
-                Sabedoria primeiro.
-              </p>
-              <div className="mx-auto my-4 h-px w-12 bg-gold" />
-              <p className="font-display text-[clamp(1.5rem,4vw,2rem)] font-semibold uppercase leading-[1.1] text-gold-soft">
-                Recursos depois.
-              </p>
-            </div>
-            <p className="mt-5 text-center text-[12.5px] italic leading-relaxed text-ink-faint">
-              A ordem muda tudo: primeiro a capacidade de governar, depois os recursos.
-            </p>
+            <img
+              src={DIAGNOSTIC_IMAGE}
+              alt="Mockup do Diagnóstico da Prosperidade Sábia"
+              loading="lazy"
+              decoding="async"
+              className="mx-auto h-auto w-full max-w-[440px] object-contain"
+            />
           </Reveal>
         </div>
       </div>

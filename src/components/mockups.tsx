@@ -89,8 +89,11 @@ export function ProductMockup({ className = "" }: { className?: string }) {
 /** Converte o ID do arquivo do Drive em URL de imagem direta */
 const drive = (id: string) => `https://lh3.googleusercontent.com/d/${id}`;
 
-/** Box da coleção completa — usado na seção "O sistema completo" */
+/** Box da coleção completa — usado no Hero e na seção "O sistema completo" */
 export const COLLECTION_IMAGE = drive("1pNnvF_StoF5NFMPlqRb0av-khknfGJyd");
+
+/** Diagnóstico da Prosperidade Sábia — usado na seção "O problema real" */
+export const DIAGNOSTIC_IMAGE = drive("1bGrFQ-bBlqV_Eja5wyzq-vXprRdpxOdR");
 
 export type MockKind =
   | "book"
