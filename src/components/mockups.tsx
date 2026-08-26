@@ -1,7 +1,7 @@
 import { Scales } from "./decor";
 
 /* =========================================================
-   Mockup principal: pilha editorial (guia + 2 ferramentas)
+   Mockup principal (Hero): pilha editorial (guia + 2 folhas)
    ========================================================= */
 
 export function ProductMockup({ className = "" }: { className?: string }) {
@@ -81,8 +81,16 @@ export function ProductMockup({ className = "" }: { className?: string }) {
 }
 
 /* =========================================================
-   Miniaturas dos entregáveis (Seção 8)
+   Imagens reais dos mockups (Google Drive — link direto)
+   Os arquivos precisam estar compartilhados como
+   "qualquer pessoa com o link" para renderizar.
    ========================================================= */
+
+/** Converte o ID do arquivo do Drive em URL de imagem direta */
+const drive = (id: string) => `https://lh3.googleusercontent.com/d/${id}`;
+
+/** Box da coleção completa — usado na seção "O sistema completo" */
+export const COLLECTION_IMAGE = drive("1pNnvF_StoF5NFMPlqRb0av-khknfGJyd");
 
 export type MockKind =
   | "book"
@@ -93,165 +101,40 @@ export type MockKind =
   | "decision"
   | "doc";
 
+const MOCKUP_IMAGES: Record<MockKind, string> = {
+  book: drive("1RkTzFwcucKpFtZR5WSp1WYi2dZToqojz"),
+  diagnostic: drive("1bGrFQ-bBlqV_Eja5wyzq-vXprRdpxOdR"),
+  map: drive("1NT3TFUNdS3v474_XvCG1R9XZ7cLNxPd3"),
+  plan: drive("1vDU8eFJXX6_8kI1kCJ5_RAuXIleGDz0p"),
+  xray: drive("1SX3ZSsx4-KSAQgGKPVeqr9V0bjIc-AAn"),
+  decision: drive("1X1F9PzJ7vjuDOEmMT5w71DuWnKpuxq08"),
+  doc: drive("18cBVklHEkn_apyfvsnKY8CtfVLMiuTo-"),
+};
+
+const MOCKUP_ALTS: Record<MockKind, string> = {
+  book: "Mockup do Guia Principal Os 7 Princípios da Prosperidade de Salomão",
+  diagnostic: "Mockup do Diagnóstico da Prosperidade Sábia",
+  map: "Mockup do Mapa S.A.L.O.M.",
+  plan: "Mockup do Plano Pouco a Pouco",
+  xray: "Mockup do Raio-X dos Seus Recursos",
+  decision: "Mockup do Checklist da Decisão Financeira Sábia",
+  doc: "Mockup do Plano Pessoal de Prosperidade Sábia",
+};
+
+/* =========================================================
+   Miniaturas dos entregáveis (Seção 8 e Seção 4)
+   ========================================================= */
+
 export function MiniMock({ kind }: { kind: MockKind }) {
   return (
-    <div
-      aria-hidden="true"
-      className="relative flex aspect-[16/10] w-full items-center justify-center overflow-hidden border border-ink/12 bg-ivory-dim p-4"
-    >
-      {kind === "book" && <MockBook />}
-      {kind === "diagnostic" && <MockDiagnostic />}
-      {kind === "map" && <MockMap />}
-      {kind === "plan" && <MockPlan />}
-      {kind === "xray" && <MockXray />}
-      {kind === "decision" && <MockDecision />}
-      {kind === "doc" && <MockDoc />}
+    <div className="relative flex aspect-[16/10] w-full items-center justify-center overflow-hidden border border-ink/12 bg-ivory-dim p-3 sm:p-4">
+      <img
+        src={MOCKUP_IMAGES[kind]}
+        alt={MOCKUP_ALTS[kind]}
+        loading="lazy"
+        decoding="async"
+        className="h-full w-full object-contain"
+      />
     </div>
-  );
-}
-
-function Frame({ children, className = "" }: { children: React.ReactNode; className?: string }) {
-  return (
-    <div
-      className={`w-[82%] border border-ink/15 bg-ivory-bright shadow-[0_14px_30px_-16px_rgba(13,22,38,0.4)] ${className}`}
-    >
-      {children}
-    </div>
-  );
-}
-
-function MockBook() {
-  return (
-    <Frame className="rotate-[-2deg] bg-navy p-1.5">
-      <div className="border border-gold/50 px-3 py-4 text-center">
-        <p className="text-[7px] font-semibold uppercase tracking-[0.3em] text-gold-soft">
-          Guia principal
-        </p>
-        <p className="mt-2 font-display text-[13px] font-semibold uppercase leading-tight text-ivory-bright">
-          Os 7 Princípios
-        </p>
-        <p className="font-display text-[11px] italic text-gold-soft">da Prosperidade</p>
-        <Scales className="mx-auto mt-2 h-6 w-6 text-gold-soft" strokeWidth={4.5} />
-      </div>
-    </Frame>
-  );
-}
-
-function MockDiagnostic() {
-  return (
-    <Frame className="p-3">
-      <p className="border-b border-gold/50 pb-1.5 text-[8px] font-bold uppercase tracking-[0.22em] text-navy">
-        Diagnóstico da Prosperidade Sábia
-      </p>
-      <div className="mt-2.5 space-y-2">
-        {[86, 54, 70, 38].map((w, i) => (
-          <div key={i} className="flex items-center gap-2">
-            <span className="h-2.5 w-2.5 rotate-45 border border-gold-deep/60" />
-            <span className="h-1.5 bg-ink/15" style={{ width: `${w}%` }} />
-            <span className={`h-1.5 bg-gold`} style={{ width: `${100 - w}%`, opacity: 0.35 }} />
-          </div>
-        ))}
-      </div>
-    </Frame>
-  );
-}
-
-function MockMap() {
-  return (
-    <Frame className="p-3">
-      <p className="border-b border-gold/50 pb-1.5 text-[8px] font-bold uppercase tracking-[0.22em] text-navy">
-        Mapa S.A.L.O.M.
-      </p>
-      <div className="mt-3 flex items-center justify-between">
-        {["S", "A", "L", "O", "M"].map((l, i) => (
-          <span key={l} className="flex items-center gap-1">
-            <span className="flex h-7 w-7 items-center justify-center border border-gold-deep/50 bg-ivory font-display text-[13px] font-semibold text-gold-deep">
-              {l}
-            </span>
-            {i < 4 && <span className="h-px w-2 bg-gold-deep/40" />}
-          </span>
-        ))}
-      </div>
-      <div className="paper-lines mt-3 h-8 opacity-60" />
-    </Frame>
-  );
-}
-
-function MockPlan() {
-  return (
-    <Frame className="p-3">
-      <p className="border-b border-gold/50 pb-1.5 text-[8px] font-bold uppercase tracking-[0.22em] text-navy">
-        Plano Pouco a Pouco
-      </p>
-      <div className="mt-3 flex items-end gap-1.5">
-        {[22, 30, 40, 52, 66, 82].map((h, i) => (
-          <span
-            key={i}
-            className="flex-1 bg-gradient-to-t from-navy to-navy-soft"
-            style={{ height: `${h * 0.55}px`, opacity: 0.55 + i * 0.07 }}
-          />
-        ))}
-      </div>
-      <div className="mt-2 h-px bg-gold/60" />
-    </Frame>
-  );
-}
-
-function MockXray() {
-  return (
-    <Frame className="p-3">
-      <p className="border-b border-gold/50 pb-1.5 text-[8px] font-bold uppercase tracking-[0.22em] text-navy">
-        Raio-X dos Recursos
-      </p>
-      <div className="mt-2.5 space-y-1.5">
-        {[
-          ["Entradas", 78, "bg-gold"],
-          ["Saídas", 56, "bg-navy/70"],
-          ["Compromissos", 40, "bg-navy/50"],
-          ["Reservas", 26, "bg-bronze/70"],
-        ].map(([label, w, color]) => (
-          <div key={label as string} className="flex items-center gap-2">
-            <span className="w-16 text-[7px] font-semibold uppercase tracking-wider text-ink-faint">
-              {label}
-            </span>
-            <span className={`h-2 ${color}`} style={{ width: `${w}%` }} />
-          </div>
-        ))}
-      </div>
-    </Frame>
-  );
-}
-
-function MockDecision() {
-  return (
-    <Frame className="p-3">
-      <p className="border-b border-gold/50 pb-1.5 text-[8px] font-bold uppercase tracking-[0.22em] text-navy">
-        Checklist da Decisão Sábia
-      </p>
-      <div className="mt-2.5 space-y-2">
-        {["Antes de agir…", "Melhora meus recursos?", "Aumenta ordem?"].map((q, i) => (
-          <div key={i} className="flex items-center gap-2">
-            <span className="flex h-4 w-4 items-center justify-center border border-gold-deep/60 text-[8px] font-bold text-gold-deep">
-              ?
-            </span>
-            <span className="text-[9px] italic text-ink-soft">{q}</span>
-          </div>
-        ))}
-      </div>
-    </Frame>
-  );
-}
-
-function MockDoc() {
-  return (
-    <Frame className="relative p-3">
-      <p className="border-b border-gold/50 pb-1.5 text-[8px] font-bold uppercase tracking-[0.22em] text-navy">
-        Plano Pessoal
-      </p>
-      <div className="paper-lines mt-2.5 h-14 opacity-60" />
-      <span className="absolute bottom-2.5 right-2.5 flex h-9 w-9 items-center justify-center rounded-full border border-gold-deep/60 text-[8px] font-bold uppercase text-gold-deep">
-        selo
-      </span>
-    </Frame>
   );
 }

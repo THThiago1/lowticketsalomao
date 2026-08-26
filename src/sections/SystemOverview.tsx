@@ -1,6 +1,6 @@
 import { Reveal } from "../lib/motion";
 import { Chain, SectionHeader } from "../components/ui";
-import { MiniMock, ProductMockup, type MockKind } from "../components/mockups";
+import { COLLECTION_IMAGE, MiniMock, type MockKind } from "../components/mockups";
 
 /* ============ SEÇÃO 4 — VISÃO GERAL DO SISTEMA ============ */
 
@@ -33,12 +33,20 @@ export function SystemOverview() {
         />
 
         <div className="mt-14 grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-10">
-          {/* Guia principal em destaque */}
+          {/* Box da coleção em destaque */}
           <div className="lg:col-span-4">
             <Reveal>
-              <ProductMockup className="mx-auto max-w-[280px] sm:max-w-[300px] lg:max-w-[320px]" />
+              <div className="anim-float">
+                <img
+                  src={COLLECTION_IMAGE}
+                  alt="Coleção completa Os 7 Princípios da Prosperidade de Salomão"
+                  loading="lazy"
+                  decoding="async"
+                  className="mx-auto h-auto w-full max-w-[280px] sm:max-w-[300px] lg:max-w-[320px]"
+                />
+              </div>
               <p className="mt-2 text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-ink-faint">
-                01 · Guia principal
+                Coleção completa
               </p>
             </Reveal>
           </div>
