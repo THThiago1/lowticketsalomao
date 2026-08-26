@@ -1,0 +1,230 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body: "Archivo", "Helvetica Neue", Arial, sans-serif;
+
+  --color-ivory: #f4eedd;
+  --color-ivory-bright: #faf6ea;
+  --color-ivory-dim: #ebe2c9;
+  --color-ivory-deep: #dfd2af;
+  --color-ink: #211e16;
+  --color-ink-soft: #4d4634;
+  --color-ink-faint: #7c7358;
+  --color-navy: #16233b;
+  --color-navy-deep: #0d1626;
+  --color-navy-soft: #223654;
+  --color-gold: #b08a3c;
+  --color-gold-soft: #cba75b;
+  --color-gold-deep: #8a6a2b;
+  --color-bronze: #7e6339;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-ivory);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  overflow-x: clip;
+}
+
+button {
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+a {
+  touch-action: manipulation;
+}
+
+/* Grão de papel sobre toda a página */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+::selection {
+  background: var(--color-gold);
+  color: var(--color-navy-deep);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+/* ---------- Reveal on scroll ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--rd, 0ms);
+  will-change: opacity, transform;
+}
+.reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* Título com máscara de linha */
+.mask-line {
+  display: block;
+  overflow: hidden;
+}
+.mask-line > span {
+  display: block;
+  transform: translateY(112%);
+  transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--rd, 0ms);
+}
+.reveal.is-in .mask-line > span,
+.is-in .mask-line > span {
+  transform: none;
+}
+
+/* ---------- Tipografia editorial ---------- */
+.eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+@media (min-width: 640px) {
+  .eyebrow {
+    letter-spacing: 0.34em;
+  }
+}
+
+.dropcap::first-letter {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 3.2em;
+  float: left;
+  line-height: 0.8;
+  padding: 0.06em 0.14em 0 0;
+  color: var(--color-gold-deep);
+}
+
+/* ---------- Animações ---------- */
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-9px);
+  }
+}
+@keyframes panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes bar-grow {
+  from {
+    width: 0;
+  }
+}
+@keyframes seal-pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.anim-spin-slow {
+  animation: spin-slow 46s linear infinite;
+}
+.anim-float {
+  animation: float-soft 7s ease-in-out infinite;
+}
+.anim-panel {
+  animation: panel-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.anim-seal {
+  animation: seal-pulse 5s ease-in-out infinite;
+}
+
+/* ---------- Texturas ---------- */
+.paper-lines {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 9px,
+    rgba(33, 30, 22, 0.1) 9px,
+    rgba(33, 30, 22, 0.1) 10px
+  );
+}
+.page-edges {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    #efe8d2 0,
+    #efe8d2 3px,
+    #d8cba4 3px,
+    #d8cba4 4px
+  );
+}
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(33, 30, 22, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(33, 30, 22, 0.045) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+.navy-grid {
+  background-image:
+    linear-gradient(rgba(203, 167, 91, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(203, 167, 91, 0.06) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+.hairline-b {
+  border-bottom: 1px solid rgba(33, 30, 22, 0.14);
+}
+.hairline-t {
+  border-top: 1px solid rgba(33, 30, 22, 0.14);
+}
+
+/* ---------- Movimento reduzido ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal,
+  .mask-line > span {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
